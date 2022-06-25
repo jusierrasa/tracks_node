@@ -1,12 +1,28 @@
 const mongoose = require('mongoose');
 
-const UserScheme = new mongoose.Schema(
+const TrakcScheme = new mongoose.Schema(
   {
     name: {type:String},
-    age: {type:Number},
-    email: {type:String, unique: true}.
-    password: {type:String},
-    role: {type: ["user", "admin"], default: "user"}
+    album: {type:String},
+    covers: {
+      type:String,
+      validate: {
+        validator : () => {
+            return true;
+        },
+        message: "ERROR_URL",
+      },
+    },
+    artista: {
+      name: {type:String},
+      nickname: {type:String},
+      nationality:{type: String},
+    },
+    duration: {
+      start: {type: Number},
+      end: {type: Number},
+      mediaId: {type: mongoose.Types.ObjectId}
+    },
   },
   {
     timestamps:true, //TODO createAt, updatedAt
