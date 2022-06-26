@@ -4,25 +4,25 @@ const TrakcScheme = new mongoose.Schema(
   {
     name: {type:String},
     album: {type:String},
-    covers: {
+    cover: {
       type:String,
       validate: {
         validator : () => {
             return true;
         },
-        message: "ERROR_URL",
+        message: "ERROR_URL"
       },
     },
     artista: {
       name: {type:String},
       nickname: {type:String},
-      nationality:{type: String},
+      nationality:{type: String}
     },
     duration: {
       start: {type: Number},
-      end: {type: Number},
-      mediaId: {type: mongoose.Types.ObjectId}
+      end: {type: Number}
     },
+  mediaId: {type: mongoose.Types.ObjectId}
   },
   {
     timestamps:true, //TODO createAt, updatedAt
